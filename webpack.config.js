@@ -1,6 +1,7 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -16,6 +17,22 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
+              }
+            },
+          },
+          'postcss-loader'
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -44,6 +61,13 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    new HtmlWebpackPlugin({ template: './public/index.html' })
+    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new StyleLintPlugin({
+      files: [
+        '**/*.css',
+        '**/*.scss'
+      ],
+      failOnError: true,
+    }),
   ]
 }
