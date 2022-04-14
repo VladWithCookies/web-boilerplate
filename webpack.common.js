@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -19,18 +20,22 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: [
-          'style-loader',
+        oneOf: [
           {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: {
-                localIdentName: '[path]-[name]-[local]-[hash:base64:5]'
+            test: /\.module\.scss$/,
+            use: [
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true
+                }
               }
-            },
+            ]
           },
-          'postcss-loader'
+          {
+            use: [MiniCssExtractPlugin.loader, 'css-loader']
+          }
         ],
       },
       {
@@ -59,6 +64,7 @@ module.exports = {
     new StyleLintPlugin({
       files: ['**/*.css', '**/*.scss'],
       failOnError: true
-    })
+    }),
+    new MiniCssExtractPlugin()
   ]
 };

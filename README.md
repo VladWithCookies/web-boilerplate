@@ -30,6 +30,7 @@ npm run start
 ## What is included?
 * [Webpack](https://webpack.js.org/)
   - [HtmlWebpackPlugin](https://webpack.js.org/plugins/html-webpack-plugin/)
+  - [MiniCssExtractPlugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
 * [Babel](https://babeljs.io/)
 * [PostCSS](https://postcss.org/)
   - [Autoprefixer](https://github.com/postcss/autoprefixer)
