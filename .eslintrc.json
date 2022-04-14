@@ -33,7 +33,15 @@
       "extends": ["plugin:testing-library/react"]
     }
   ],
-  "ignorePatterns": ["webpack.config.js"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "ignorePatterns": [
+    "webpack.config.js",
+    "jest.config.js"
+  ],
   "rules": {
     "jest/no-alias-methods": "off",
     "react/jsx-indent": ["error", 2],
