@@ -39,7 +39,9 @@
     }
   },
   "ignorePatterns": [
-    "webpack.config.js",
+    "webpack.common.js",
+    "webpack.development.js",
+    "webpack.production.js",
     "jest.config.js"
   ],
   "rules": {

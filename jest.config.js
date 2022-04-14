@@ -5,10 +5,7 @@ module.exports = {
     '!**/node_modules/**',
     '!src/index.jsx'
   ],
-  coverageReporters: [
-    'text',
-    'json-summary'
-  ],
+  coverageReporters: ['text'],
   coverageThreshold: {
     global: {
       branches: 100,

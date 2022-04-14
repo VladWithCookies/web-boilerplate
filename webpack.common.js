@@ -1,16 +1,14 @@
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'source-map',
   entry: './src/index.jsx',
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js'
+    filename: '[name]-[chunkhash].bundle.js',
+    clean: true
   },
   module: {
     rules: [
@@ -28,7 +26,7 @@ module.exports = {
             options: {
               importLoaders: 1,
               modules: {
-                localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
+                localIdentName: '[path]-[name]-[local]-[hash:base64:5]'
               }
             },
           },
@@ -52,14 +50,12 @@ module.exports = {
       path.resolve('./node_modules')
     ]
   },
-  devServer: {
-    open: true,
-    hot: true
+  performance: {
+    hints: false
   },
   plugins: [
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({ template: './public/index.html' }),
-    new ESLintPlugin(),
+    new ESLintPlugin({ failOnError: true }),
     new StyleLintPlugin({
       files: ['**/*.css', '**/*.scss'],
       failOnError: true
