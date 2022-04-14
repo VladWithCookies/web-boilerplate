@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
@@ -16,7 +17,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.(css|scss)$/,
@@ -36,15 +37,11 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader',
-        ],
+        use: ['file-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader',
-        ],
+        use: ['file-loader'],
       },
     ]
   },
@@ -62,12 +59,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new ESLintPlugin(),
     new StyleLintPlugin({
-      files: [
-        '**/*.css',
-        '**/*.scss'
-      ],
-      failOnError: true,
-    }),
+      files: ['**/*.css', '**/*.scss'],
+      failOnError: true
+    })
   ]
-}
+};
