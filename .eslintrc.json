@@ -88,6 +88,68 @@
     "space-infix-ops": "error",
     "space-unary-ops": "error",
     "template-curly-spacing": "error",
+    "import/order": ["error", {
+      "groups": [
+        "external",
+        "builtin",
+        "internal",
+        "parent",
+        "sibling",
+        "index"
+     ],
+    "pathGroups": [
+        {
+          "pattern": "constants/**",
+          "group": "internal" ,
+          "position": "before"
+        },
+        {
+          "pattern": "contexts/**",
+          "group": "internal",
+          "position": "before"
+        },
+        {
+          "pattern": "api/**",
+          "group": "internal",
+          "position": "before"
+        },
+        {
+          "pattern": "utils/**",
+          "group": "internal",
+          "position": "before"
+        },
+        {
+          "pattern": "hooks/**",
+          "group": "internal",
+          "position": "before"
+        },
+        {
+          "pattern": "components/atoms/**",
+          "group": "internal",
+          "position": "before"
+        },
+        {
+          "pattern": "components/molecules/**",
+          "group": "internal",
+          "position": "before"
+        },
+        {
+          "pattern": "components/organisms/**",
+          "group": "internal",
+          "position": "before"
+        },
+        {
+          "pattern": "component/templates/**",
+          "group": "internal",
+          "position": "before"
+        },
+        {
+          "pattern": "features/**",
+          "group": "internal",
+          "position": "before"
+        }
+     ]
+    }],
     "xss/no-mixed-html": "error",
     "xss/no-location-href-assign": "error"
   }
