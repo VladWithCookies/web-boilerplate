@@ -139,7 +139,7 @@
           "position": "before"
         },
         {
-          "pattern": "component/templates/**",
+          "pattern": "components/templates/**",
           "group": "internal",
           "position": "before"
         },
