@@ -59,3 +59,5 @@ npm run start
 * [MSW](https://mswjs.io)
 * [Faker](https://github.com/faker-js/faker)
 * [Ramda](https://ramdajs.com/)
+* [React Router](https://reactrouter.com/)
+* [TypeScript](https://www.typescriptlang.org/)
