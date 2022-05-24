@@ -1,9 +1,9 @@
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
-    'src/**/*.{js,jsx}',
+    'src/**/*.{ts,tsx}',
     '!**/node_modules/**',
-    '!src/index.jsx'
+    '!src/index.tsx'
   ],
   coverageReporters: ['text'],
   coverageThreshold: {
@@ -16,8 +16,8 @@ module.exports = {
   },
   moduleNameMapper: {
     '^.+\\.module\\.(css|scss)$': 'identity-obj-proxy',
-    '^.+\\.(css|scss)$': '<rootDir>/__mocks__/style.js',
-    '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$': '<rootDir>/__mocks__/file.js'
+    '^.+\\.(css|scss)$': '<rootDir>/__mocks__/style.ts',
+    '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$': '<rootDir>/__mocks__/file.ts'
   },
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js']

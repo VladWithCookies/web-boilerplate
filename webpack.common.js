@@ -5,7 +5,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: '[name]-[chunkhash].bundle.js',
@@ -14,9 +14,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['ts-loader']
       },
       {
         test: /\.(css|scss)$/,
@@ -36,7 +36,7 @@ module.exports = {
           {
             use: [MiniCssExtractPlugin.loader, 'css-loader']
           }
-        ],
+        ]
       },
       {
         test: /\.(jpg|jpeg|png|gif|webp|avif|svg)$/,
@@ -49,7 +49,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.jsx', '.js'],
+    extensions: ['.jsx', '.js', '.tsx', '.ts'],
     modules: [
       path.resolve('./src'),
       path.resolve('./node_modules')

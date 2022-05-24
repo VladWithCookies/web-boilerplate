@@ -4,6 +4,7 @@
   },
   "parser": "@babel/eslint-parser",
   "plugins": [
+    "@typescript-eslint",
     "import",
     "sonarjs",
     "xss",
@@ -17,6 +18,8 @@
   ],
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:import/react",
     "plugin:sonarjs/recommended",
     "plugin:pii/recommended",
@@ -29,7 +32,7 @@
   ],
   "overrides": [
     {
-      "files": ["**/*.test.js?(x)"],
+      "files": ["**/*.test.ts?(x)"],
       "extends": ["plugin:testing-library/react"]
     }
   ],
