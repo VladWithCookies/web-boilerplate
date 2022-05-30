@@ -38,6 +38,7 @@ npm run start
 * [SCSS](https://sass-lang.com/)
 * [CSS Modules](https://github.com/css-modules/css-modules)
 * [ESLint](https://eslint.org/)
+  - [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint)
   - [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import)
   - [eslint-plugin-jest](https://github.com/jest-community/eslint-plugin-jest)
   - [eslint-plugin-jest-formatting](https://github.com/dangreenisrael/eslint-plugin-jest-formatting)
@@ -59,3 +60,5 @@ npm run start
 * [MSW](https://mswjs.io)
 * [Faker](https://github.com/faker-js/faker)
 * [Ramda](https://ramdajs.com/)
+* [React Router](https://reactrouter.com/)
+* [TypeScript](https://www.typescriptlang.org/)
