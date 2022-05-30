@@ -30,11 +30,12 @@ module.exports = {
                 options: {
                   modules: true
                 }
-              }
+              },
+              'sass-loader'
             ]
           },
           {
-            use: [MiniCssExtractPlugin.loader, 'css-loader']
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
           }
         ],
       },
