@@ -47,7 +47,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.0.3",
     "mini-css-extract-plugin": "^2.6.0",
-    "msw": "^0.39.2",
+    "msw": "^0.42.0",
     "node-sass": "^7.0.1",
     "postcss": "^8.4.12",
     "postcss-loader": "^6.2.1",
